@@ -1,19 +1,13 @@
 DROP DATABASE IF EXISTS Project;
-
 CREATE DATABASE Project;
 
 USE Project;
 
 DROP TABLE IF EXISTS Student;
-
 DROP TABLE IF EXISTS Reservation;
-
 DROP TABLE IF EXISTS Room;
-
 DROP TABLE IF EXISTS Hotel;
-
 DROP TABLE IF EXISTS Hotel_staff;
-
 
 CREATE TABLE Student(
     Student_ID INT,
