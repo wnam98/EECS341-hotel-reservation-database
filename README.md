@@ -1,4 +1,4 @@
-# EECS341-hotel-reservation-database
+# Hotel Reservation Management Database
 
 ## Application background
 Our product is a database for a third-party hotel reservation management system with an easy way to make reservations for hotels. Our database holds all useful information that users can easily access all the information our database has collected. Based on the information provided, users can then choose the place, time, date, and room they want to reserve, and finally confirm their reservation.
