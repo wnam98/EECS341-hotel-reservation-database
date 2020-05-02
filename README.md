@@ -105,3 +105,14 @@ TRC: {t| (∃s) (s є Student Λ t[Student_name] = s[Student_name]
 Λ (∃z) (z є Hotel  Λ z[Hotel_id] = w[Hotel_id] Λ  z[Hotel_name] = ‘Doubletree’)}
 
 RA: ∏Student_name ((Student ⋈ has_reservation⋈ Reservation) ⋈ (σ Hotel_name = ‘Doubletree’ (assign_room ⋈ Hotel) ))
+
+## Tools/Frameworks
+
+* [MySQL](https://www.mysql.com/) - DBMS for project. Queries were written in Workbench.
+* [Octoparse](https://www.octoparse.com/) - Third party webscrapper used to collect sample data.
+
+## Project Team
+
+* **Walter Nam** - [profile](https://github.com/wnam98)
+* **Xiaoyao Ni** - [profile](https://github.com/xxn23)
+
