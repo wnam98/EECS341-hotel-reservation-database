@@ -8,3 +8,38 @@ In our database, there are 5 entity sets including Student, Reservation, Hotel, 
 
 ## Database Schema
 ![DBSchema](https://raw.github.com/wnam98/EECS341-hotel-reservation-database/master/docs/DBSchema.PNG "DBSchema")
+## Relational Schema
+Mapping our ER model to relational schemas, we get the following schema set: 
+
+Student = (Student_id, Student_name, Gender, Preference, Expected_price)
+Reservation = (Reservation_id, Date,  Check_in_time, Check_out_time)
+Room = (Hotel_id, Room_number, Room_type, Status, Price)
+Hotel = (Hotel id, Hotel_name, Location, Rating, ContactInfo)
+Hotel Staff = (Staff_id, Staff_name, Gender, Language)
+
+has_reservation = (Reservation_id, Student_id)
+assign_room = (Reservation_id, Hotel_id, Room_number)
+has_room = (Room_number, Hotel_id)
+has_staff = (Staff_id, Hotel_id)
+
+## Functional Dependencies
+For the Student table, assuming each student has only one name, one gender, and one expected price, but can have more than one preference, then the following functional dependency holds: 
+
+Student_id -> Student_name, Gender, Expected_price 
+
+For the Reservation table, assuming each reservation has only one date, one check in time, and one check out time, then the following functional dependency holds: 
+
+Reservation_id -> Date,  Check_in_time, Check_out_time
+
+For the Room table, assuming each room has only one room type, one status, and one price, then the following functional dependency holds: 
+
+Hotel_id, Room_number -> Room_type, Status, Price
+
+For the Hotel table, assuming each hotel has only one name, one location, and rating, but can have more than one contact info, then the following functional dependency holds: 
+
+Hotel_id -> Hotel_name, Location, Rating
+
+For the Hotel staff table, assuming each staff has only one name, one gender, but can speak more than one language, then the following functional dependency holds: 
+
+Staff_id -> Staff_name, Gender
+
