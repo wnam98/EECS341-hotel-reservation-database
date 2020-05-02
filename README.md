@@ -76,14 +76,14 @@ WHERE assign_room.Hotel_id = Hotel.Hotel_id<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;AND has_staff.hotel_id = Hotel. Hotel_id<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;AND Hotel_staff.staff_id = has_staff. staff_id<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;AND StaffLanguage.staff_id = Hotel_staff. Staff_id<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;AND StaffLanguage.Languages = “French”;
+&nbsp;&nbsp;&nbsp;&nbsp;AND StaffLanguage.Languages = 'French';
 
 
-TRC: {t| (∃s) (s є assign_room Λ t[Reservation_id] = s[Reservation_id] 
-Λ (∃r) (r є Hotel  Λ r[Hotel_id] = s[Hotel_id]
-Λ (∃u) (u є has_staff  Λ  u[Hotel_id] = r[Hotel_id]   
-Λ (∃w) (w є Hotel_staff  Λ w[Staff_id] = u[Staff_id] 
-Λ (∃z) (z є StaffLanguage  Λ z[Staff_id] = w[Staff_id] Λ  z[Languages] = ‘French’)}
+TRC: {t| (∃s) (s є assign_room Λ t[Reservation_id] = s[Reservation_id]<br/> 
+&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃r) (r є Hotel  Λ r[Hotel_id] = s[Hotel_id]<br/> 
+&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃u) (u є has_staff  Λ  u[Hotel_id] = r[Hotel_id]<br/>    
+&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃w) (w є Hotel_staff  Λ w[Staff_id] = u[Staff_id]<br/>  
+&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃z) (z є StaffLanguage  Λ z[Staff_id] = w[Staff_id] Λ  z[Languages] = ‘French’)}
 
 RA:  ∏Reservation_id ((assign_room ⋈ Hotel ⋈ has_staff) ⋈ (σ Languages = ‘French’ (StaffLanguage ⋈ Hotel_staff) ))
 
