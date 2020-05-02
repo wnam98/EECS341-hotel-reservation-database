@@ -46,11 +46,11 @@ Staff_id -> Staff_name, Gender
 ## Example Queries
 **Find the names  of students whose expected price is greater than 100 dollars:**
 
-SELECT Student_name
-FROM Student
+SELECT Student_name<br/>
+FROM Student<br/>
 WHERE Expected_price > 100;
 
-TRC: {t| (∃s) (s є Student Λ t[Student_name] = s[Student_name] 
+TRC: {t| (∃s) (s є Student Λ t[Student_name] = s[Student_name] <br/>
 Λ s[Expected_price] > 100)}
 
 RA:  ∏Student_name (σ Expected_price>100 (Student) )
@@ -58,11 +58,11 @@ RA:  ∏Student_name (σ Expected_price>100 (Student) )
 
 **Find the names of hotels that have ratings greater than 3:**
 
-SELECT Hotel_Name
-FROM Hotel
+SELECT Hotel_Name<br/>
+FROM Hotel<br/>
 WHERE Rating > 3;
 
-TRC: {t| (∃s) (s є Hotel Λ t[Hotel_name] = s[Hotel_name] 
+TRC: {t| (∃s) (s є Hotel Λ t[Hotel_name] = s[Hotel_name] <br/>
 Λ s[Rating] > 3)}
 
 RA:  ∏Hotel_name (σ Rating >3 (Hotel) )
@@ -79,10 +79,10 @@ WHERE assign_room.Hotel_id = Hotel.Hotel_id<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;AND StaffLanguage.Languages = 'French';
 
 
-TRC: {t| (∃s) (s є assign_room Λ t[Reservation_id] = s[Reservation_id]<br/> 
-&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃r) (r є Hotel  Λ r[Hotel_id] = s[Hotel_id]<br/> 
-&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃u) (u є has_staff  Λ  u[Hotel_id] = r[Hotel_id]<br/>    
-&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃w) (w є Hotel_staff  Λ w[Staff_id] = u[Staff_id]<br/>  
+TRC: {t| (∃s) (s є assign_room Λ t[Reservation_id] = s[Reservation_id] <br/> 
+&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃r) (r є Hotel  Λ r[Hotel_id] = s[Hotel_id] <br/> 
+&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃u) (u є has_staff  Λ  u[Hotel_id] = r[Hotel_id] <br/>    
+&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃w) (w є Hotel_staff  Λ w[Staff_id] = u[Staff_id] <br/>  
 &nbsp;&nbsp;&nbsp;&nbsp;Λ (∃z) (z є StaffLanguage  Λ z[Staff_id] = w[Staff_id] Λ  z[Languages] = ‘French’)}
 
 RA:  ∏Reservation_id ((assign_room ⋈ Hotel ⋈ has_staff) ⋈ (σ Languages = ‘French’ (StaffLanguage ⋈ Hotel_staff) ))
