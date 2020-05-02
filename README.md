@@ -98,11 +98,11 @@ WHERE Student.Student_id = has_reservation.Student_id<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;AND assign_room.Hotel_id = Hotel.Hotel_id<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;AND Hotel.Hotel_name = ‘Doubletree’;
 
-TRC: {t| (∃s) (s є Student Λ t[Student_name] = s[Student_name] 
-Λ (∃r) (r є has_reservation  Λ r[Student_id] = s[Student_id]
-Λ (∃u) (u є reservation  Λ  u[Reservation_id] = r[Reservation_id]   
-Λ (∃w) (w є assign_room  Λ w[Reservation_id] = u[Reservation_id] 
-Λ (∃z) (z є Hotel  Λ z[Hotel_id] = w[Hotel_id] Λ  z[Hotel_name] = ‘Doubletree’)}
+TRC: {t| (∃s) (s є Student Λ t[Student_name] = s[Student_name] <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃r) (r є has_reservation  Λ r[Student_id] = s[Student_id]<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃u) (u є reservation  Λ  u[Reservation_id] = r[Reservation_id] <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃w) (w є assign_room  Λ w[Reservation_id] = u[Reservation_id] <br/>
+&nbsp;&nbsp;&nbsp;&nbsp;Λ (∃z) (z є Hotel  Λ z[Hotel_id] = w[Hotel_id] Λ  z[Hotel_name] = ‘Doubletree’)}
 
 RA: ∏Student_name ((Student ⋈ has_reservation⋈ Reservation) ⋈ (σ Hotel_name = ‘Doubletree’ (assign_room ⋈ Hotel) ))
 
