@@ -73,10 +73,10 @@ RA:  ∏Hotel_name (σ Rating >3 (Hotel) )
 SELECT reservation_id<br/>
 FROM assign_room, Hotel, has_staff, Hotel_staff, StaffLanguage<br/>
 WHERE assign_room.Hotel_id = Hotel.Hotel_id<br/>
-	*Tabspace*AND has_staff.hotel_id = Hotel. Hotel_id<br/>
-	*Tabspace*AND Hotel_staff.staff_id = has_staff. staff_id<br/>
-	*Tabspace*AND StaffLanguage.staff_id = Hotel_staff. Staff_id<br/>
-	*Tabspace*AND StaffLanguage.Languages = “French”;
+&nbsp;&nbsp;&nbsp;&nbsp;AND has_staff.hotel_id = Hotel. Hotel_id<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;AND Hotel_staff.staff_id = has_staff. staff_id<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;AND StaffLanguage.staff_id = Hotel_staff. Staff_id<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;AND StaffLanguage.Languages = “French”;
 
 
 TRC: {t| (∃s) (s є assign_room Λ t[Reservation_id] = s[Reservation_id] 
