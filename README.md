@@ -90,13 +90,13 @@ RA:  ∏Reservation_id ((assign_room ⋈ Hotel ⋈ has_staff) ⋈ (σ Languages 
 
 **Find the names of students who reserved Doubletree hotel:**
 
-SELECT Student_name
-FROM Student, has_reservation, reservation, assign_room, Hotel
-WHERE Student.Student_id = has_reservation.Student_id
-	AND reservation.reservation_id = has_reservation.reservation_id
-	AND assign_room.reservation_id = reservation.reservation_id
-	AND assign_room.Hotel_id = Hotel.Hotel_id
-	AND Hotel.Hotel_name = ‘Doubletree’;
+SELECT Student_name<br/>
+FROM Student, has_reservation, reservation, assign_room, Hotel<br/>
+WHERE Student.Student_id = has_reservation.Student_id<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;AND reservation.reservation_id = has_reservation.reservation_id<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;AND assign_room.reservation_id = reservation.reservation_id<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;AND assign_room.Hotel_id = Hotel.Hotel_id<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;AND Hotel.Hotel_name = ‘Doubletree’;
 
 TRC: {t| (∃s) (s є Student Λ t[Student_name] = s[Student_name] 
 Λ (∃r) (r є has_reservation  Λ r[Student_id] = s[Student_id]
