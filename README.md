@@ -43,3 +43,28 @@ For the Hotel staff table, assuming each staff has only one name, one gender, bu
 
 Staff_id -> Staff_name, Gender
 
+## Example Queries
+Find the names  of students whose expected price is greater than 100 dollars:
+
+SELECT Student_name
+FROM Student
+WHERE Expected_price > 100;
+
+TRC: {t| (∃s) (s є Student Λ t[Student_name] = s[Student_name] 
+Λ s[Expected_price] > 100)}
+
+RA:  ∏Student_name (σ Expected_price>100 (Student) )
+
+
+Find the names of hotels that have ratings greater than 3: 
+
+SELECT Hotel_Name
+FROM Hotel
+WHERE Rating > 3;
+
+TRC: {t| (∃s) (s є Hotel Λ t[Hotel_name] = s[Hotel_name] 
+Λ s[Rating] > 3)}
+
+RA:  ∏Hotel_name (σ Rating >3 (Hotel) )
+
+
