@@ -67,4 +67,41 @@ TRC: {t| (∃s) (s є Hotel Λ t[Hotel_name] = s[Hotel_name]
 
 RA:  ∏Hotel_name (σ Rating >3 (Hotel) )
 
+## Complex Queries
+Find the reservation_id of reservations made to hotels that have at least a staff that can speak French:
 
+SELECT reservation_id
+FROM assign_room, Hotel, has_staff, Hotel_staff, StaffLanguage
+WHERE assign_room.Hotel_id = Hotel.Hotel_id
+       	AND has_staff.hotel_id = Hotel. Hotel_id
+AND Hotel_staff.staff_id = has_staff. staff_id
+AND StaffLanguage.staff_id = Hotel_staff. Staff_id
+AND StaffLanguage.Languages = “French”;
+
+
+TRC: {t| (∃s) (s є assign_room Λ t[Reservation_id] = s[Reservation_id] 
+Λ (∃r) (r є Hotel  Λ r[Hotel_id] = s[Hotel_id]
+Λ (∃u) (u є has_staff  Λ  u[Hotel_id] = r[Hotel_id]   
+Λ (∃w) (w є Hotel_staff  Λ w[Staff_id] = u[Staff_id] 
+Λ (∃z) (z є StaffLanguage  Λ z[Staff_id] = w[Staff_id] Λ  z[Languages] = ‘French’)}
+
+RA:  ∏Reservation_id ((assign_room ⋈ Hotel ⋈ has_staff) ⋈ (σ Languages = ‘French’ (StaffLanguage ⋈ Hotel_staff) ))
+
+
+Find the names of students who reserved Doubletree hotel:
+
+SELECT Student_name
+FROM Student, has_reservation, reservation, assign_room, Hotel
+WHERE Student.Student_id = has_reservation.Student_id
+	AND reservation.reservation_id = has_reservation.reservation_id
+	AND assign_room.reservation_id = reservation.reservation_id
+	AND assign_room.Hotel_id = Hotel.Hotel_id
+	AND Hotel.Hotel_name = ‘Doubletree’;
+
+TRC: {t| (∃s) (s є Student Λ t[Student_name] = s[Student_name] 
+Λ (∃r) (r є has_reservation  Λ r[Student_id] = s[Student_id]
+Λ (∃u) (u є reservation  Λ  u[Reservation_id] = r[Reservation_id]   
+Λ (∃w) (w є assign_room  Λ w[Reservation_id] = u[Reservation_id] 
+Λ (∃z) (z є Hotel  Λ z[Hotel_id] = w[Hotel_id] Λ  z[Hotel_name] = ‘Doubletree’)}
+
+RA: ∏Student_name ((Student ⋈ has_reservation⋈ Reservation) ⋈ (σ Hotel_name = ‘Doubletree’ (assign_room ⋈ Hotel) ))
