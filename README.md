@@ -44,7 +44,7 @@ For the Hotel staff table, assuming each staff has only one name, one gender, bu
 Staff_id -> Staff_name, Gender
 
 ## Example Queries
-Find the names  of students whose expected price is greater than 100 dollars:
+**Find the names  of students whose expected price is greater than 100 dollars:**
 
 SELECT Student_name
 FROM Student
@@ -56,7 +56,7 @@ TRC: {t| (∃s) (s є Student Λ t[Student_name] = s[Student_name]
 RA:  ∏Student_name (σ Expected_price>100 (Student) )
 
 
-Find the names of hotels that have ratings greater than 3: 
+**Find the names of hotels that have ratings greater than 3:**
 
 SELECT Hotel_Name
 FROM Hotel
@@ -68,7 +68,7 @@ TRC: {t| (∃s) (s є Hotel Λ t[Hotel_name] = s[Hotel_name]
 RA:  ∏Hotel_name (σ Rating >3 (Hotel) )
 
 ## Complex Queries
-Find the reservation_id of reservations made to hotels that have at least a staff that can speak French:
+**Find the reservation_id of reservations made to hotels that have at least one staff member that can speak French:**
 
 SELECT reservation_id
 FROM assign_room, Hotel, has_staff, Hotel_staff, StaffLanguage
@@ -88,7 +88,7 @@ TRC: {t| (∃s) (s є assign_room Λ t[Reservation_id] = s[Reservation_id]
 RA:  ∏Reservation_id ((assign_room ⋈ Hotel ⋈ has_staff) ⋈ (σ Languages = ‘French’ (StaffLanguage ⋈ Hotel_staff) ))
 
 
-Find the names of students who reserved Doubletree hotel:
+**Find the names of students who reserved Doubletree hotel:**
 
 SELECT Student_name
 FROM Student, has_reservation, reservation, assign_room, Hotel
