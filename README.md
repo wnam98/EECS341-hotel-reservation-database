@@ -8,8 +8,9 @@ In our database, there are 5 entity sets including Student, Reservation, Hotel, 
 
 ## Database Schema
 <p align="center">
-<img src="https://raw.github.com/wnam98/EECS341-hotel-reservation-database/master/docs/DBSchema.PNG" width="966" height="815">
+<img src="https://raw.github.com/wnam98/EECS341-hotel-reservation-database/master/docs/DBSchema.PNG" width="580" height="489">
 </p>
+
 ## Relational Schema
 Mapping our ER model to relational schemas, we get the following schema set: 
 
